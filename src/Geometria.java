@@ -1,58 +1,65 @@
+
 import java.util.Scanner;
 
-public class Geometria{
-    public static void main(String []agrs){
+public class Geometria {
 
-        Scanner sc = new Scanner(System.in);
-    
-        System.out.println("Insira um caractere: ");
-        char charactere = sc.next().charAt(0);
+    public static void main(String[] args) {
 
-        System.out.println("Qual porpocao");
-        int tamanho = sc.nextInt();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um caractere: ");
+        char caractere = scanner.next().charAt(0);
+
+        System.out.println("\nEscolha uma forma geometrica:");
+        System.out.println("1 - Quadrado");
+        System.out.println("2 - Retangulo");
+        System.out.println("3 - Triangulo");
+        System.out.println("4 - Losango");
+        System.out.println("5 - Circulo");
+
+        int opcao = scanner.nextInt();
         
-        // validando tamanho
-        while (tamanho <= 0) {
-            tamanho = sc.nextInt();
-            if (tamanho <= 0) {
-                System.out.println("Insira um numero maior que zero");
-            }
-        }
-        
-        System.out.println("Ecolha uma imagem \n - Triangulo \n - Quadrado \n - Triangulo Quadrado \n - Sair");
-        String geometria = sc.nextLine();
+        System.out.print("Digite a proporcao: ");
+        int tamanho = scanner.nextInt();
 
-        
+        System.out.println("\nCaractere escolhido: " + caractere);
+        System.out.println("Forma escolhida: " + opcao);
+        System.out.println("Proporcao escolhida: " + tamanho);
+            
+        switch (opcao) {
 
-        // verifacacao se o usuario digitou uma opcao valida
-        while (!geometria.equalsIgnoreCase("Triangulo") && !geometria.equalsIgnoreCase("Quadrado") && !geometria.equalsIgnoreCase("Traingulo Quadrado") && !geometria.equalsIgnoreCase("Sair")) {
-            geometria = sc.nextLine();
-            if (!geometria.equalsIgnoreCase("Triangulo") && !geometria.equalsIgnoreCase("Quadrado") && !geometria.equalsIgnoreCase("Traingulo Quadrado") && !geometria.equalsIgnoreCase("Sair")) {
-                System.out.println("Insira um opção valida");
-            }
-            else if (geometria.equalsIgnoreCase("Sair")){
-                System.out.println("Programa Encerrado");
-            }
-            if (geometria.equalsIgnoreCase("Triangulo")){
-                for (int i = 0; i <= tamanho ; i++ ){
-                    System.out.print(" ");
+            case 1://Quadrado
+            
+            for(int i = 1; i <= tamanho;i++){
+                for(int j = 1; j <= tamanho; j++){
+                     System.out.print(caractere + " ");
                 }
-                for (int j = 0; j <= tamanho; j++){
-                    System.out.println(charactere);
-                }
+                System.out.println();
             }
-            else if(geometria.equalsIgnoreCase("Quadrado")){
-                System.out.println(" ");
-                System.out.println(charactere);
-            }
-            else if(geometria.equalsIgnoreCase("Traingulo Quadrado")){
-                System.out.println(" ");
-                System.out.println(charactere);
-            }
+                
+               
+                break;
+
+            case 2://Retangulo
+                
+                break;
+
+            case 3://Triangulo
+                
+                break;
+
+            case 4://Losango
+                
+                break;
+
+            case 5: //Circulo
+                
+                break;
+
+            default:
+                System.out.println("Opcao invalida!");
         }
 
-
-
-        sc.close();
+        scanner.close();
     }
 }
