@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class Geometria {
+public class Main {
 
     public static void main(String[] args) {
 
@@ -19,17 +19,14 @@ public class Geometria {
 
         int opcao = scanner.nextInt();
         
-        System.out.print("Digite a proporcao: ");
-        int tamanho = scanner.nextInt();
 
-        System.out.println("\nCaractere escolhido: " + caractere);
-        System.out.println("Forma escolhida: " + opcao);
-        System.out.println("Proporcao escolhida: " + tamanho);
+    
             
         switch (opcao) {
 
-            case 1://Quadrado
-            
+            case 1:{//Quadrado
+            System.out.print("Digite a proporcao: ");
+        int tamanho = scanner.nextInt();
             for(int i = 1; i <= tamanho;i++){
                 for(int j = 1; j <= tamanho; j++){
                      System.out.print(caractere + " ");
@@ -39,22 +36,84 @@ public class Geometria {
                 
                
                 break;
+            }
 
-            case 2://Retangulo
-                
-                break;
+            case 2:{//Retangulo
+                    int altura;
+                    int largura;
+                        
+            System.out.print("Digite a altura: ");
+                altura = scanner.nextInt();
 
-            case 3://Triangulo
-                
+             System.out.print("Digite a largura: ");
+                largura = scanner.nextInt();
+                                        
+                   for(int i = 1; i <= altura;i++){
+                for(int j = 1; j <= largura; j++){
+                     System.out.print(caractere + " ");
+                }
+                System.out.println();
+            }
+            
                 break;
+            }
+            
+            case 3:{//Triangulo
+                System.out.print("Digite a proporcao: ");
+            int tamanho = scanner.nextInt();
+            
+            for(int i = 1; i <= tamanho; i++){
+                for ( int j = 1; j <= tamanho - i; j++){
+                    System.out.print(" ");
+                }
+                for (int k = 1; k <= i; k++) {
+            System.out.print(caractere + " ");
+        }
+        System.out.println();
+            }
+                break;
+            }
+            
+            case 4:{//Losango
 
-            case 4://Losango
-                
-                break;
+    System.out.print("Digite a proporcao: ");
+    int tamanho = scanner.nextInt();
 
-            case 5: //Circulo
-                
+
+    for (int i = 1; i <= tamanho; i++) {
+
+        // Espaços iniciais
+        for (int j = 1; j <= tamanho - i; j++) {
+            System.out.print("  ");
+        }
+
+        // Caracteres
+        for (int k = 1; k <= 2 * i - 1; k++) {
+            System.out.print(caractere + " ");
+        }
+
+        System.out.println();
+    }
+
+        for (int a = tamanho - 1; a >= 1; a--){
+             for (int b = 1; b <= tamanho - a; b++) {
+            System.out.print("  ");
+        }
+
+
+        for (int c = 1; c <= 2 * a - 1; c++) {
+            System.out.print(caractere + " ");
+        }
+        System.out.println();
+        }                
                 break;
+            }
+            
+            case 5:{ //Circulo
+                System.out.print("Digite a proporcao: ");
+        int tamanho = scanner.nextInt();
+                break;
+            }
 
             default:
                 System.out.println("Opcao invalida!");
