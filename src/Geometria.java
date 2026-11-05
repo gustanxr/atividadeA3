@@ -79,7 +79,7 @@ public class Main {
     System.out.print("Digite a proporcao: ");
     int tamanho = scanner.nextInt();
 
-
+    // Parte superior do losango
     for (int i = 1; i <= tamanho; i++) {
 
         // Espaços iniciais
@@ -100,7 +100,7 @@ public class Main {
             System.out.print("  ");
         }
 
-
+        // Caracteres
         for (int c = 1; c <= 2 * a - 1; c++) {
             System.out.print(caractere + " ");
         }
@@ -109,11 +109,29 @@ public class Main {
                 break;
             }
             
-            case 5:{ //Circulo
-                System.out.print("Digite a proporcao: ");
-        int tamanho = scanner.nextInt();
-                break;
-            }
+           case 5: { // Circulo
+
+    System.out.print("Digite o raio: ");
+    int raio = scanner.nextInt();
+
+    for (int y = -raio; y <= raio; y++) {
+
+        for (int x = -raio; x <= raio; x++) {
+
+            if(x*x + y*y <= raio*raio ){
+                System.out.print(caractere+" ");
+            } 
+            else {
+                System.out.print("  ");
+            }   
+
+        }
+
+        System.out.println();
+    }
+
+    break;
+}
 
             default:
                 System.out.println("Opcao invalida!");
