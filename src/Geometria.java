@@ -16,16 +16,17 @@ public class Main {
 
         opcao = 0;
 
-        while (opcao < 1 || opcao > 3) {
+        while (opcao < 1 || opcao > 4) {
 
             System.out.println("\nEscolha uma forma geometrica:");
             System.out.println("1 - Quadrado");
             System.out.println("2 - Trinagulo");
             System.out.println("3 - Triangulo e Quadrado");
+            System.out.println("4 - Sair");
 
             opcao = scanner.nextInt();
 
-            if (opcao < 1 || opcao > 3) {
+            if (opcao < 1 || opcao > 4) {
                 System.out.println("opção invalida. Escolha novamente!");
             }
         }
@@ -33,8 +34,19 @@ public class Main {
         switch (opcao) {
 
             case 1:{//Quadrado
-            System.out.print("Digite a proporção: ");
-        int tamanho = scanner.nextInt();
+            int tamanho = 0;
+            while (tamanho <= 0) {
+                System.out.print("Digite a proporção: ");
+                if (scanner.hasNextInt()) {
+                    tamanho = scanner.nextInt();
+                    if (tamanho <= 0) {
+                        System.out.println("Erro! Digite um numero valido!");
+                    }
+                } else {
+                    scanner.next();
+                    System.out.println("Erro! Digite um numero valido!");
+                }
+            }
             for(int i = 1; i <= tamanho;i++){
                 for(int j = 1; j <= tamanho; j++){
                      System.out.print(caractere + " ");
@@ -47,8 +59,19 @@ public class Main {
             }
             
             case 2:{//Triangulo
+            int tamanho = 0;
+            while (tamanho <= 0) {
                 System.out.print("Digite a proporção: ");
-            int tamanho = scanner.nextInt();
+                if (scanner.hasNextInt()) {
+                    tamanho = scanner.nextInt();
+                    if (tamanho <= 0) {
+                        System.out.println("Erro! Digite um numero valido!");
+                    }
+                } else {
+                    scanner.next();
+                    System.out.println("Erro! Digite um numero valido!");
+                }
+            }
             
             for(int i = 1; i <= tamanho; i++){
                 for ( int j = 1; j <= tamanho - i; j++){
@@ -65,8 +88,19 @@ public class Main {
             
             
              case 3: { // Triangulo e quadrado 
-                System.out.print("Digite a proporção: ");
-                int tamanho = scanner.nextInt();
+                int tamanho = 0;
+                while (tamanho <= 0) {
+                    System.out.print("Digite a proporção: ");
+                    if (scanner.hasNextInt()) {
+                        tamanho = scanner.nextInt();
+                        if (tamanho <= 0) {
+                            System.out.println("Erro! Digite um numero valido!");
+                        }
+                    } else {
+                        scanner.next();
+                        System.out.println("Erro! Digite um numero valido!");
+                    }
+                }
 
                 for (int i = 1; i <= tamanho; i++) {
 
@@ -96,9 +130,17 @@ public class Main {
                 break;
              }
 
+            case 4: { // Sair
+                continuar = false;
+                System.out.println("Até mais!");
+                break;
+            }
+
             default:
                 System.out.println("Opcao invalida!");
         }
+
+        if (opcao != 4) {
 
         System.out.print("Escolher outra forma? (s/n): ");
         char resposta = scanner.next().charAt(0);
@@ -106,6 +148,8 @@ public class Main {
         if (resposta != 's' && resposta != 'S') {
             continuar = false;
             System.out.println("Até mais!");
+        }
+
         }
 
         }
