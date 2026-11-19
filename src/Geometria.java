@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Main {
@@ -10,22 +9,31 @@ public class Main {
         System.out.print("Digite um caractere: ");
         char caractere = scanner.next().charAt(0);
 
-        System.out.println("\nEscolha uma forma geometrica:");
-        System.out.println("1 - Quadrado");
-        System.out.println("2 - Retangulo");
-        System.out.println("3 - Triangulo");
-        System.out.println("4 - Losango");
-        System.out.println("5 - Circulo");
+        int opcao = 0;
+        boolean continuar = true;
 
-        int opcao = scanner.nextInt();
-        
+        while (continuar) {
 
-    
+        opcao = 0;
+
+        while (opcao < 1 || opcao > 3) {
+
+            System.out.println("\nEscolha uma forma geometrica:");
+            System.out.println("1 - Quadrado");
+            System.out.println("2 - Trinagulo");
+            System.out.println("3 - Triangulo e Quadrado");
+
+            opcao = scanner.nextInt();
+
+            if (opcao < 1 || opcao > 3) {
+                System.out.println("opção invalida. Escolha novamente!");
+            }
+        }
             
         switch (opcao) {
 
             case 1:{//Quadrado
-            System.out.print("Digite a proporcao: ");
+            System.out.print("Digite a proporção: ");
         int tamanho = scanner.nextInt();
             for(int i = 1; i <= tamanho;i++){
                 for(int j = 1; j <= tamanho; j++){
@@ -37,29 +45,9 @@ public class Main {
                
                 break;
             }
-
-            case 2:{//Retangulo
-                    int altura;
-                    int largura;
-                        
-            System.out.print("Digite a altura: ");
-                altura = scanner.nextInt();
-
-             System.out.print("Digite a largura: ");
-                largura = scanner.nextInt();
-                                        
-                   for(int i = 1; i <= altura;i++){
-                for(int j = 1; j <= largura; j++){
-                     System.out.print(caractere + " ");
-                }
-                System.out.println();
-            }
             
-                break;
-            }
-            
-            case 3:{//Triangulo
-                System.out.print("Digite a proporcao: ");
+            case 2:{//Triangulo
+                System.out.print("Digite a proporção: ");
             int tamanho = scanner.nextInt();
             
             for(int i = 1; i <= tamanho; i++){
@@ -74,67 +62,52 @@ public class Main {
                 break;
             }
             
-            case 4:{//Losango
-
-    System.out.print("Digite a proporcao: ");
-    int tamanho = scanner.nextInt();
-
-    // Parte superior do losango
-    for (int i = 1; i <= tamanho; i++) {
-
-        // Espaços iniciais
-        for (int j = 1; j <= tamanho - i; j++) {
-            System.out.print("  ");
-        }
-
-        // Caracteres
-        for (int k = 1; k <= 2 * i - 1; k++) {
-            System.out.print(caractere + " ");
-        }
-
-        System.out.println();
-    }
-
-        for (int a = tamanho - 1; a >= 1; a--){
-             for (int b = 1; b <= tamanho - a; b++) {
-            System.out.print("  ");
-        }
-
-        // Caracteres
-        for (int c = 1; c <= 2 * a - 1; c++) {
-            System.out.print(caractere + " ");
-        }
-        System.out.println();
-        }                
-                break;
-            }
             
-           case 5: { // Circulo
+            
+             case 3: { // Triangulo e quadrado 
+                System.out.print("Digite a proporção: ");
+                int tamanho = scanner.nextInt();
 
-    System.out.print("Digite o raio: ");
-    int raio = scanner.nextInt();
+                for (int i = 1; i <= tamanho; i++) {
 
-    for (int y = -raio; y <= raio; y++) {
+                    // Triangulo
+                    for (int j = 1; j <= tamanho - i; j++) {
+                        System.out.print(" ");
+                    }
+                    for (int k = 1; k <= i; k++) {
+                        System.out.print(caractere + " ");
+                    }
+                    // Espacos para alinhar o separador
+                    for (int j = 1; j <= tamanho - i; j++) {
+                        System.out.print(" ");
+                    }
 
-        for (int x = -raio; x <= raio; x++) {
+                    // Separador
+                    System.out.print(" | ");
 
-            if(x*x + y*y <= raio*raio ){
-                System.out.print(caractere+" ");
-            } 
-            else {
-                System.out.print("  ");
-            }   
+                    // Quadrado
+                    for (int j = 1; j <= tamanho; j++) {
+                        System.out.print(caractere + " ");
+                    }
 
-        }
+                    System.out.println();
+                }
 
-        System.out.println();
-    }
-
-    break;
-}
+                break;
+             }
 
             default:
                 System.out.println("Opcao invalida!");
+        }
+
+        System.out.print("Escolher outra forma? (s/n): ");
+        char resposta = scanner.next().charAt(0);
+
+        if (resposta != 's' && resposta != 'S') {
+            continuar = false;
+            System.out.println("Até mais!");
+        }
+
         }
 
         scanner.close();
